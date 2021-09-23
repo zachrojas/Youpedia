@@ -1,11 +1,44 @@
-<!DOCTYPE html><html lang="en">
-<head>    <meta charset="UTF-8">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Youpedia</title>    
-    <link rel="stylesheet" href="./assets/css/style.css" />    
-    <!--icon-->    <link rel="shortcut icon"        
-    href="insert pic icon link here"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouPedia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css" />    
 </head>
-
 <body>
-    <h1>Welcome to Youpedia</h1>
+    <header>
+        <h1>
+            YouPedia
+        </h1>
+    </header>
+    
+    <section>
+        <h3>
+            One Stop Boredom Cure
+        </h3>
+    </section>
+   
+    <!-- This is the search form -->
+    <div class="card">
+        <form id="searchForm">
+            <input id="searchInput" type="text" autocomplete="off" placeholder="Time to get weird">
+            <button id="search">Search</button>
+            </form>
+    </div>
+
+    <!-- This is where the search results content will display -->
+
+    <div id="resultsList"></div>
+
+
+</body>
+
+<script src="./assets/script.js"></script>
+
+</html>
