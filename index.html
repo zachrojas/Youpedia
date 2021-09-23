@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./app.css">
-    <script src="../Bryant Formatting/java.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css" />    
 </head>
 <body>
     <header>
@@ -24,11 +24,21 @@
         </h3>
     </section>
    
+    <!-- This is the search form -->
     <div class="card">
-        <div class="search">
-            <input type="text" class="search-bar" placeholder="Search">
-            <button><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-        </div>
+        <form id="searchForm">
+            <input id="searchInput" type="text" autocomplete="off" placeholder="Time to get weird">
+            <button id="search">Search</button>
+            </form>
     </div>
+
+    <!-- This is where the search results content will display -->
+
+    <div id="resultsList"></div>
+
+
 </body>
+
+<script src="./assets/script.js"></script>
+
 </html>
