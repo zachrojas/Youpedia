@@ -91,7 +91,7 @@ function authenticate() {
     //gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
  // });
 
-
+ document.getElementById('sign-in-or-out-button').addEventListener('click', authenticate, loadClient, execute);
 
 //
 //
