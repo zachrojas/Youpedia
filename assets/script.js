@@ -75,7 +75,7 @@ function authenticate() {
         "snippet"
       ],
       "order": "viewCount",
-      "q": "skateboarding dog",
+      "q": searchInput,
       "type": [
         "video"
       ],
@@ -91,7 +91,7 @@ function authenticate() {
     //gapi.auth2.init({client_id: "YOUR_CLIENT_ID"});
  // });
 
- document.getElementById('sign-in-or-out-button').addEventListener('click', authenticate, loadClient, execute);
+ document.getElementById('sign-in-or-out-button').addEventListener('click', authenticate, loadClient,);
 
 //
 //
@@ -106,4 +106,5 @@ function authenticate() {
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     displaySearchResults(searchInput.value);
+    execute();
 })
