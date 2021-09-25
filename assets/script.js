@@ -3,11 +3,12 @@
 var resultsList = document.getElementById('resultsList');
 var searchForm = document.getElementById('searchForm');
 var searchInput = document.getElementById('searchInput');
+var resultsList = document.getElementById('resultsYoutube');
 
 // Function to fetch the search results from Wikipedia
 
 function displaySearchResults(x) {
-    var url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${x}`;
+    var url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=1&srsearch=${x}`;
     console.log(url);
     fetch(url)
         .then(function (response) {
@@ -52,12 +53,13 @@ function youtubeAPI () {
     })
 }
 
+
 // Search event listener utilizing the 'e' for event
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     displaySearchResults(searchInput.value);
-    youtubeAPI();
+    displaySearchResultsYoutube(searchInput.value);
 })
 
 
