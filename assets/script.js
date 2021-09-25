@@ -1,9 +1,10 @@
 // Global variables
 
 var resultsList = document.getElementById('resultsList');
-var searchForm = document.getElementById('searchForm');
+//var searchForm = document.getElementById('searchForm');
 var searchInput = document.getElementById('searchInput');
-var resultsList = document.getElementById('resultsYoutube');
+var resultsYoutube = document.getElementById('resultsYoutube');
+var searchBtn = document.getElementById('search-btn');
 
 // Function to fetch the search results from Wikipedia
 
@@ -19,7 +20,7 @@ function displaySearchResults(x) {
             resultsOnPage(resultsArray);
         })
         .catch(function () {
-            console.log('There was an error');
+            console.log('There was an error with Wikipedia API');
         });
 }
 
@@ -53,9 +54,7 @@ function resultsOnPage(myArray) {
     })
 } */
 
-
 //youtube api currently using
-
 
 function displaySearchResultsYoutube(x) {
     var url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${x}&key=AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds`;
@@ -69,7 +68,7 @@ function displaySearchResultsYoutube(x) {
             resultsOnPagee(resultsArray);
         })
         .catch(function () {
-            console.log('There was an error');
+            console.log('There was an error with YouTube API');
         });
 }
 
@@ -96,12 +95,11 @@ function resultsOnPagee(myArray) {
 
 // Search event listener utilizing the 'e' for event
 
-searchForm.addEventListener('submit', (e) => {
+searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
     displaySearchResults(searchInput.value);
     displaySearchResultsYoutube(searchInput.value);
 })
-
 
 /* gapi.client.setApiKey("AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds");
 return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
