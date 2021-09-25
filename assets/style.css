@@ -1,11 +1,25 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
 
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 body {
     height: 100vh;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
-    background-image: url(https://source.unsplash.com/1600x900/?landscape);
     font-size: 100%;
+    background: linear-gradient(-45deg, #eedc52, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 header {
@@ -13,7 +27,6 @@ header {
     justify-content: center;
     align-items: center;
 }
-
 
 /* h1 {
     display: block;
