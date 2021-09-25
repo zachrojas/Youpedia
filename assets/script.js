@@ -32,12 +32,11 @@ function resultsOnPage(myArray) {
         var itemSnippet = item.snippet;
         var itemUrl = encodeURI(`https://en.wikipedia.org/wiki/${item.title}`);
         resultsList.insertAdjacentHTML('beforeend',
-            `<div class="resultItem">
-         <h3 class="resultTitle">
+        `<div class="resultItem">
+            <h3 class="resultTitle">
             <a href="${itemUrl}" target="_blank" rel="noopener">${itemTitle}</a>
-         </h3>
-         <p class="resultSnippet"><a href="${itemUrl}"  target="_blank" rel="noopener">
-         ${itemSnippet}</a></p>
+            </h3>
+            <p class="resultSnippet"><a href="${itemUrl}"  target="_blank" rel="noopener">${itemSnippet}</a></p>
         </div>`
         );
     })
@@ -49,7 +48,7 @@ function youtubeAPI () {
     fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&q='+searchInput+'&key=AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds')
     .then(function(res){
         console.log(res);
-        return res.text();
+        return (res.json());
     })
 }
 
@@ -59,4 +58,35 @@ searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     displaySearchResults(searchInput.value);
     youtubeAPI();
+})
+
+
+gapi.client.setApiKey("AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds");
+return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+    .then(function() { console.log("GAPI client loaded for API"); },
+          function(err) { console.error("Error loading GAPI client for API", err); });
+
+// Make sure the client is loaded before calling this method.
+function execute() {
+return gapi.client.youtube.search.list({
+  
+})
+    .then(function(response) {
+            // Handle the results here (response.result has the parsed body).
+            console.log("Response", response);
+          },
+          function(err) { console.error("Execute error", err); });
+}
+gapi.load("client");
+document.getElementById('sign-in-or-out-button').addEventListener('click', loadClient);
+//
+//
+//
+//
+//
+// Search event listener utilizing the 'e' for event
+searchForm.addEventListener('submit', (e) => {
+e.preventDefault();
+displaySearchResults(searchInput.value);
+execute();
 })

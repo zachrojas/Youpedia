@@ -13,32 +13,52 @@
 </head>
 <body>
     <header>
-        <h1>
-            YouPedia
-        </h1>
+        <h1 class="title is-1">YouPedia</h1>
+            <p class="subtitle is-3">One stop boredom cure</p>
     </header>
     
-    <section>
-        <h3>
-            One Stop Boredom Cure
-        </h3>
-    </section>
-   
     <!-- This is the search form -->
-    <div class="card">
-        <form id="searchForm">
-            <input id="searchInput" type="text" autocomplete="off" placeholder="Time to get weird">
-            <button id="search">Search</button>
-            </form>
+
+    <div class="columns is-centered">
+        <div class="column is-half is-justify-content-center">
+            <!-- <form id="searchForm">
+            <input class="input is-primary" id="searchInput" type="text" autocomplete="off" placeholder="Time to get weird">
+            <button class="button is-primary is-large" id="search">Search</button>
+            </form> -->
+            <div class="field has-addons">
+                <div class="control">
+                  <input id="searchInput" class="input is-large" type="text" placeholder="Time to get weird">
+                </div>
+                <div class="control">
+                  <a id="search-btn" class="button is-info is-large">
+                    Search
+                  </a>
+                </div>
+              </div>
+        </div>
     </div>
 
     <!-- This is where the search results content will display -->
 
-    <div id="resultsList"></div>
+   <!-- <div id="resultsList"></div> -->
+
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half" id="resultsList">
+                </div>
+                <div class="column is-half" id="resultsYoutube">
+                </div>
+            </div>
+        </div>
 
 
-</body>
 
+<script src="https://apis.google.com/js/api.js"></script>
 <script src="./assets/script.js"></script>
+
+
+</body>                    
+
+
 
 </html>
