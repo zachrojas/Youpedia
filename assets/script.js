@@ -45,14 +45,54 @@ function resultsOnPage(myArray) {
 
 //document.getElementById('submit').addEventListener('click', youtubeAPI;
 
-function youtubeAPI () {
+/* function youtubeAPI () {
     fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&q='+searchInput+'&key=AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds')
     .then(function(res){
         console.log(res);
         return (res.json());
     })
+} */
+
+
+//youtube api currently using
+
+
+function displaySearchResultsYoutube(x) {
+    var url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${x}&key=AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds`;
+    console.log(url);
+    fetch(url)
+        .then(function (response) {
+            return (response.json());
+        })
+        .then(function (data) {
+            var resultsArray = data.query.search;
+            resultsOnPagee(resultsArray);
+        })
+        .catch(function () {
+            console.log('There was an error');
+        });
 }
 
+// Function to display the results
+
+function resultsOnPagee(myArray) {
+    resultsYoutube.innerHTML = " ";
+    resultsYoutube.insertAdjacentHTML('beforeend', `<h2>Search Results for ${searchInput.value} </h2>`);
+    myArray.forEach(function (item) {
+        var itemTitle = item.title;
+        var itemSnippet = item.snippet;
+        var itemUrl = encodeURI(`https://www.youtube.com/results?search_query=${item.title}`);
+        resultsYoutube.insertAdjacentHTML('beforeend',
+            `<div class="resultItem">
+         <h3 class="resultTitle">
+            <a href="${itemUrl}" target="_blank" rel="noopener">${itemTitle}</a>
+         </h3>
+         <p class="resultSnippet"><a href="${itemUrl}"  target="_blank" rel="noopener">
+         ${itemSnippet}</a></p>
+        </div>`
+        );
+    })
+}
 
 // Search event listener utilizing the 'e' for event
 
@@ -63,7 +103,7 @@ searchForm.addEventListener('submit', (e) => {
 })
 
 
-gapi.client.setApiKey("AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds");
+/* gapi.client.setApiKey("AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds");
 return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
     .then(function() { console.log("GAPI client loaded for API"); },
           function(err) { console.error("Error loading GAPI client for API", err); });
@@ -80,15 +120,15 @@ return gapi.client.youtube.search.list({
           function(err) { console.error("Execute error", err); });
 }
 gapi.load("client");
-document.getElementById('sign-in-or-out-button').addEventListener('click', loadClient);
+document.getElementById('sign-in-or-out-button').addEventListener('click', loadClient); */
 //
 //
 //
 //
 //
-// Search event listener utilizing the 'e' for event
+/* // Search event listener utilizing the 'e' for event
 searchForm.addEventListener('submit', (e) => {
 e.preventDefault();
 displaySearchResults(searchInput.value);
 execute();
-})
+}) */
