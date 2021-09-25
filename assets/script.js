@@ -74,7 +74,7 @@ function displaySearchResultsYoutube(x) {
                 console.log('Error: ' + response.statusText);
             }
         }).catch(function(error) {
-            console.log('Unable to getForecast: Invalid Connection');
+            console.log('Unable to connect to youtube api');
         });
     }
 // Function to display the results
@@ -101,12 +101,14 @@ function resultsOnPageyoutube(myArray) {
     })
 }
 
+
 // Search event listener utilizing the 'e' for event
 
 searchBtn.addEventListener('click', (e) => {
     e.preventDefault();
     displaySearchResults(searchInput.value);
     displaySearchResultsYoutube(searchInput.value);
+    localStorage.setItem("searched", searchInput.value);
 })
 
 /* gapi.client.setApiKey("AIzaSyAIk-sQsD_lMEy_rg7tZXsnMV2QP71_Zds");
